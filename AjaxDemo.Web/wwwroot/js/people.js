@@ -62,6 +62,7 @@
             $("#edit-firstName").val(firstName);
             $("#edit-lastName").val(lastName);
             $("#edit-age").val(age);
+            $("#edit-modal").data('person-id', personId);
             editModal.show();
             
         })     
@@ -69,11 +70,11 @@
 
 
     $("#update-person").on('click', function () {
-        const button = $(this);
-        const personId = button.data('person-id')
+        
         const firstName = $("#edit-firstName").val();
         const lastName = $("#edit-lastName").val();
         const age = $("#edit-age").val();
+        const personId = $("#edit-modal").data("person-id")
 
         $.post('/home/updateperson', {
             id: personId,
